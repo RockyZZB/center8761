@@ -1,0 +1,21 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: center
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 15000
+  instance:
+    prefer-ip-address: true
+
+---
+spring:
+  profiles:center
+eureka:
+  instance:
+    hostname: center
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/
+
